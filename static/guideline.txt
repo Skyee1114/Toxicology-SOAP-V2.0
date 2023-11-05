@@ -1,0 +1,129 @@
+Use the conditions below if the patient is associated with some of the substances below:
+Toxic serum level or dose(mg) or dose per kg of body weight) of substances:
+
+Toxic serum level thresholds:
+- Toxic Serum Ethanol (ETHOH) = over 100 mg/dL
+- Toxic Urine Arsenic = over 100 mcg/L
+- Toxic Serum Phenobarbital = from 3 to 40 mcg/ml (lethargy and ataxia), from 60 to 150 mcg/ml (coma), 150 mcg/ml (hypotension and coma)
+- Toxic Serum level of Valproic Acid (VPA) level = over 100 mcg/ml
+- Toxic Serum level of Carbamazepine = over 12 mg/L
+- Toxic Serum level of Theophylline = over 40 mcg/ml (chronic), 80 mcg/ml (acute)
+- Toxic Serum level of Lithium = over 1.5 mEq/L (chronic), 4 mEq/L (acute)
+- Toxic Serum level of Lead = over 5 mcg /dL, (over 40 mcg /dL, usually needs chelator treatment)
+- Toxic Serum level of Digoxin = over 2 ng/mL (acute on chronic or chronic), 10 ng/mL (acute), 3 mg (adult and acute), 0.1 mg/kg (children)
+- Toxic serum level of Phenytoin = over 20 to 50 µg/mL (mild to moderate), 50 µg/mL (severe), 20 mg/kg
+-Toxic serum level of Methanol = over 25 mg/dL
+-Toxic serum level of Ethylene Glycol = over 25 mg/dL
+- Toxic Serum level of ASA (aspirin)= over 30 mg/dL 
+-For evaluating acetaminophen level (APAP LEVEL): Determine the thresholds for toxicity based    on time post ingestion that you can find it in the Toxsoap, consider time post ingestion as time and use this formula to calculate the toxic APAP level for that time
+    if 4 <= time <= 24:
+        line200 = round (math.exp(5.298317 - ((time - 4) * 0.1732868)))
+        line150 = round(line200 - (0.25 * line200))
+If the APAP level in the Toxsoap> line 200, the APAP LEVEL is in toxic range and if it is >line150, it is potentially in toxic range.
+
+Toxic doses of substances:
+- Toxic dose of acetaminophen (Tylenol, APAP) = over 200 mg/kg (acute), 150 mg/kg (acute on chronic)
+
+- Toothpaste or fluoride= Find the type of fluoride in the toothpaste from: Sodium fluoride, Sodium monofluorophosphate, Stannous fluoride, or Fluoride ion. Then ask for the concentration percentage and amount ingested in ounces. Calculate the dose in mg/kg using the appropriate formula based on fluoride type. If Sodium fluoride, use (Concentration * Amount * 128) / weight. If Sodium monofluorophosphate, use (Concentration * Amount * 37) / weight. If Stannous fluoride, use (Concentration * Amount * 69) / weight. If Fluoride ion, use (Concentration * Amount * 218) / weight. If the final dose is greater than 3 mg/kg, print that the dose is toxic and advise going to the ER.
+
+-Salicylate= Evaluate if any substance is salicylate (evaluate brand names of salicylates as well) if you find a salicylate in the Toxsoap: your tasks are: look for salicylate form( solid or liquid form).
+If solid, get amount and units and calculate dose in mg.
+If liquid, get amount, units, concentration% and calculate dose in mg/kg.
+You should determine the ACF value (You should proceed with an assumed value of ACFS) for the specific salicylate in the Toxsoap. Then Calculate ACF-corrected dose by multiplying dose by ACF.
+Print ACF-corrected dose.
+Predict toxicity level (not toxic, mild-moderate, severe) by comparing ACF-corrected dose to toxicity thresholds.
+Print toxicity prediction.
+Find ASA serum level in the Toxsoap.
+Check if ASA level exceeds 30 mg/dL toxic range.
+Print message if ASA toxic range detected.
+
+- Toxic dose of Doxylamine = over 4 mg/kg
+-Toxic dose of Valproic acid (VPA, Depakote)= over 50 mg/kg
+- Toxic dose of Chlorpheniramine = over 1.3 mg/kg
+- Toxic dose of Diphenhydramine = over 7.5 mg/kg
+- Toxic dose of Hydroxyzine = over 7.5 mg/kg
+- Toxic dose of Cetirizine = over 300 mg
+- Toxic dose of Levocetirizine = over 300 mg
+- Toxic dose of Fexofenadine = over 300 mg
+- Toxic dose of Desloratadine = over 300 mg
+- Toxic dose of Loratadine = over 300 mg
+- Toxic dose of Captopril = over 100 mg (child)
+- Toxic dose of Enalapril = over 30 mg (child)
+- Toxic dose of Fosinopril = over 30 mg (child)
+- Toxic dose of Lisinopril = over 20 mg (child), 80 mg (adult)
+- Toxic dose of Perindopril = over 8 mg
+- Toxic dose of Ramipril = over 5 mg
+- Toxic dose of Trandolapril = over 4 mg
+- Toxic dose of Amoxicillin = over 250 mg/kg
+- Toxic dose of Ampicillin = over 250 mg/kg
+- Toxic dose of Ethylene Glycol = over 10 cc, 2000 mg (adult), 10 mL (adult), 1 swallow (adult), 1 taste or lick (child)
+- Toxic dose of Benzocaine = over 100 mg (child)
+- Toxic dose of Carbamazepine = over 20 µg/mL, 10 mg/kg
+- Toxic dose of Valproic acid = over 50 mg/kg
+- Toxic dose of Aripiprazole = over 15 mg (under 12 years old and acute), 50 mg (over 12 years old and acute)
+- Toxic dose of Ibuprofen = over 200 mg/kg (mild to moderate), 400 mg/kg (serious)
+- Toxic dose of Felodipine = over 10 mg (adult), 0.3 mg/kg (child)
+- Foreign Bodies = over 17 mm (size for under 2 years old), 23 mm (size for over 2 years old)
+- Toxic dose of Indomethacin = over 175 mg (child), 1500 mg (adult)
+- S Toxic dose of Sertraline = over 250 mg
+- Toxic dose of Celexa (Citalopram) = over 5 mg/kg or 100 mg(child)
+- Toxic dose of Escitalopram = over 50 mg
+- Toxic dose of Fluoxetine (Assuming this is for non-chronic users) = over 100 mg
+- Toxic dose of Gabapentin = over 35000 mg
+- Toxic dose of Loperamide (Imodium) = over 0.4 mg/kg (child over 6 months old)
+- Toxic dose of L-thyroxine (Levothyroxine, Synthroid, T4) = over 0.5 mg (child)
+- Toxic dose of Methylphenidate (Ritalin) = over 2 mg/kg (Immediate-Release), 60 mg (Immediate-Release), 4 mg/kg (Sustained-Release), 120 mg (Sustained-Release)
+- Toxic dose of Melatonin = over 10 mg
+- Toxic dose of Metformin = over 5000 mg (adult), 1700 mg (child)
+- Toxic dose of Phenylpropanolamine (PRA) = over 10 mg/kg (child), 3 mg/kg (infant)
+- Toxic dose of Pramoxine = over 150 mg (child), 11 mg/kg (child), 250 mg (adult)
+- Toxic dose of Visine (tetrahydrozoline) = over 1 mg
+- Toxic dose of Vitamin A = over 300000 IU (child), 1000000 IU (adult)
+- Toxic dose of Venlafaxine (Effexor) = over 5.5 mg/kg
+- Toxic dose of Zolpidem = over 70 mg (adult), 2.5 mg (child)
+- Toxic dose of Warfarin = over 0.5 mg/kg (child)
+- Oil of wintergreen = over 1 mg (child under 6 years old), 4 cc (child over 6 years old)
+- Toxic dose of Long-acting Anticoagulant Rodenticide (brodifacoum, bromadiolone, difethialone) = over 1 mg
+-  Toxic dose of Iron = over 20 mg/kg (potentially toxic), over 40 mg/kg (toxic)
+- Toxic dose of Fluoride (toothpaste) = over 3 mg/kg
+- Toxic dose of Boric acid (Borate) = over 1000 mg (infant), 2000 mg (child), 7000 mg (adult)
+- Toxic dose of Bupropion (Wellbutrin) = over 600 mg (adult and Immediate-Release), 900 mg (adult and Sustained-Release), 10 mg/kg (child)
+- Toxic dose of Camphor = over 10 mg/kg (mild to moderate), 30 mg/kg (serious)
+- Toxic dose of Calcium channel blockers = over 10 mg (adult), 0.3 mg/kg (child)
+- Toxic dose of Bepridil = over 300 mg (adult), any (child)
+- Toxic dose of ISRADIPINE = over 20 mg (adult), 0.1 mg/kg (child)
+- Toxic dose of NICARDIPINE = over 40 mg (adult and Immediate-Release), 60 mg (adult and Sustained-Release), 1.25 mg/kg (child)
+- Toxic dose of NIMODIPINE = over 60 mg (adult), any (child)
+- Toxic dose of NISOLDIPINE = over 30 mg (adult), any (child)
+- Toxic dose of Diltiazem = over 120 mg (adult and Immediate-Release), 360 mg (adult and Sustained-Release), 540 mg (adult and Extended-Release), 1mg/kg (child)
+- Toxic dose of Verapamil = over 120 mg (adult and Immediate-Release), 480 mg (adult and Sustained-Release), 2.5 mg/kg (child)
+- Toxic dose of Nifedipine = over 30 mg (adult and Immediate-Release), 120 mg (adult and Extended-Release), any (child)
+- Toxic dose of Caffeine = over 30 mg/kg
+- Toxic dose of Clonidine = over 0.1 mg (child under 4 years old), 0.2 mg (child from 5 to 8 years old), 0.4 mg (child over 8 years old)
+- Toxic dose of AMITRIPTYLINE = over 5 mg/kg (child), 300 mg (dose for adult), 200 mg (adolescent or elderly)
+- Toxic dose of CLOMIPRAMINE = over 5 mg/kg (child), 300 mg (adult), 200 mg (from 10 to 18 years old)
+- Toxic dose of DESIPEAMINE = over 2.5 mg/kg (child), 300 mg (dose for adult), 150 mg (adolescent or elderly)
+- Toxic dose of DOXEPIN = over 5 mg/kg (child), 300 mg (adult)
+- Toxic dose of IMIPRAMINE = over 5 mg/kg (child), 300 mg (dose for adult), 100 mg (adolescent or elderly)
+- Toxic dose of NORTRIPTYLINE = over 2.5 mg/kg (child), 150 mg (dose for adult), 50 mg (adolescent or elderly)
+- Toxic dose of PROTRIPTYLINE = over 1 mg/kg (child), 60 mg (dose for adult), 20 mg (adolescent or elderly)
+- Toxic dose of TRIMIPRAMINE = over 2.5 mg/kg (child), 200 mg (adult), 100 mg (adolescent or elderly)
+- Toxic dose of Duloxetine (Cymbalta) = over 5 mg (maximum daily dose and chronic)
+- Toxic dose of Dextromethorphan = over 7.7 mg/kg (acute)
+- Toxic dose of Pseudoephedrine = over 11 mg/kg (child under 6 years old), 180 mg (child under 6 years old)
+- Toxic dose of Phenylephrine = over 11 mg/kg (child)
+- Toxic dose of Digoxin= over 3 mg (adult and acute), over 0.1 mg/kg (children)
+
+
+
+Note:
+If a substance is in the form of liquid, you should calculate the mg/kg . 
+You should use these steps to calculate the dose(mg/kg):
+
+convert_to_ml: Convert units like oz, sips, tabs to ml
+concentration_to_mg_ml: Convert percentage concentration to mg/ml
+get_amount_and_concentration:
+Convert input amount to ml
+Convert input concentration% to mg/ml
+Calculate total mg by multiplying amount_in_ml and concentration_mg_ml
+Return amount_in_ml, concentration_mg_ml, total_mg
